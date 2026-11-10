@@ -11,10 +11,10 @@ export interface ShopeeProduct {
   name: string;
   category: string;
   price: number;
-  stock: number;
+  stock?: number;
   soldCount: number;
   rating: number;
-  imageUrl: string;
+  imageUrl?: string;
   priority: Priority;
   currentRank: number; // 1 = Top search position on shopee.co.id
   previousRank: number;
@@ -64,6 +64,11 @@ export interface ServerConfig {
   currentProxy: ProxyNode;
   proxyRotationEnabled: boolean;
   proxyPool?: ProxyNode[];
+  edgeServer?: string;
+  rateLimitRemaining?: number;
+  serverTimestamp?: string;
+  realTimeConnected?: boolean;
+  packetsReceived?: number;
 }
 
 export interface ProxyNode {

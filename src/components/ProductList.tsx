@@ -21,6 +21,7 @@ interface ProductListProps {
   onOpenSeoModal: (product: ShopeeProduct) => void;
   onDeleteProduct: (productId: string) => void;
   onClearAllProducts: () => void;
+  onLoadSampleProducts?: () => void;
 }
 
 export const ProductList: React.FC<ProductListProps> = ({
@@ -31,6 +32,7 @@ export const ProductList: React.FC<ProductListProps> = ({
   onOpenSeoModal,
   onDeleteProduct,
   onClearAllProducts,
+  onLoadSampleProducts,
 }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('Semua');
@@ -150,13 +152,26 @@ export const ProductList: React.FC<ProductListProps> = ({
           <p className="text-xs text-slate-400 max-w-md leading-relaxed mb-6">
             Semua produk telah dikosongkan. Silakan isi produk toko Shopee Anda secara manual untuk mulai menaikkan peringkat ke barisan #1 teratas setiap 1 menit sekali.
           </p>
-          <button
-            onClick={onOpenAddModal}
-            className="px-6 py-3 bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white text-xs font-bold rounded-xl flex items-center space-x-2 transition shadow-lg shadow-orange-500/30 hover:scale-105 active:scale-95 cursor-pointer"
-          >
-            <Plus className="w-4 h-4" />
-            <span>+ Tambah Produk Shopee Sekarang (Manual)</span>
-          </button>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <button
+              onClick={onOpenAddModal}
+              className="px-5 py-2.5 bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white text-xs font-bold rounded-xl flex items-center space-x-2 transition shadow-lg shadow-orange-500/30 hover:scale-105 active:scale-95 cursor-pointer"
+            >
+              <Plus className="w-4 h-4" />
+              <span>+ Tambah Produk Shopee (Manual)</span>
+            </button>
+
+            {onLoadSampleProducts && (
+              <button
+                onClick={onLoadSampleProducts}
+                className="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-orange-400 hover:text-orange-300 text-xs font-bold rounded-xl border border-orange-500/40 flex items-center space-x-2 transition cursor-pointer"
+                title="Muat 3 contoh produk toko resmi untuk langsung mencoba auto-boost 1 menit"
+              >
+                <Sparkles className="w-4 h-4 text-yellow-400" />
+                <span>+ Muat Contoh Produk Toko (1-Klik)</span>
+              </button>
+            )}
+          </div>
         </div>
       ) : filteredProducts.length === 0 ? (
         <div className="py-10 text-center text-slate-400 text-xs">

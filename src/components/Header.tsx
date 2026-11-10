@@ -73,8 +73,9 @@ export const Header: React.FC<HeaderProps> = ({
                 <Activity className="w-3 h-3" />
                 {isPinging ? 'Pinging...' : `${serverConfig.latencyMs} ms`}
               </span>
-              <span className="px-1.5 py-0.2 bg-emerald-500/20 text-emerald-400 text-[10px] rounded uppercase font-bold">
-                ONLINE
+              <span className="px-1.5 py-0.5 bg-emerald-500/20 text-emerald-400 text-[10px] rounded uppercase font-bold flex items-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                LIVE REAL-TIME
               </span>
             </button>
 
