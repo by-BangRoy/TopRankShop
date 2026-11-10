@@ -1,0 +1,6 @@
+{
+  "name": "Shopee Top Rank Auto-Booster",
+  "description": "Alat otomatisasi penaik produk Shopee ke peringkat teratas secara berkala setiap 1 menit, terintegrasi dengan pemantauan server shopee.co.id, manajemen 5 slot boost, dan pelacak ranking real-time.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
